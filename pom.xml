@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.visualpathit</groupId>
     <artifactId>vprofile</artifactId>
@@ -297,10 +297,10 @@
         </plugins>
     </build>
     <repositories>
-      <repository>
+        <repository>
         <id>codeartifact</id>
         <name>codeartifact</name>
-    <url>https://domainame-accountid.d.codeartifact.regioncode.amazonaws.com/maven/maven-central-store/</url>
-      </repository>
+    <url>https://salma-444339627073.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
+        </repository>
     </repositories>
 </project>
