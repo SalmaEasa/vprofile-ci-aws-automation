@@ -1,4 +1,4 @@
-# 🚀 vProfile Multitier Java Stack: Automated CI Pipeline
+# 🚀 vProfile Multitier Java Stack: AWS Native Automated CI Pipeline
 
 This repository contains the complete **AWS Native CI Pipeline** for the vProfile Java application. The project demonstrates a production-grade DevOps workflow, ensuring every code push is automatically built, analyzed, and stored using managed cloud services.
 
