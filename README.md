@@ -6,14 +6,19 @@ This repository contains the complete **AWS Native CI Pipeline** for the vProfil
 
 ## 🏗 System Architecture
 
-The infrastructure is hosted natively on **AWS**, utilizing managed services to ensure resource isolation, security, and optimal performance without the overhead of managing dedicated servers.
+The infrastructure utilizes **AWS Native Services** to ensure security, scalability, and real-time monitoring of the build lifecycle.
+* **AWS CodePipeline:** Orchestrates the workflow stages.
+* **AWS CodeStar Connections:** Provides secure, credential-less integration with **Bitbucket**.
+* **AWS CodeBuild:** Serverless environment for Maven builds and SonarCloud analysis.
+* **AWS CodeArtifact:** Managed artifact repository for secure dependency management.
+* **Amazon S3:** Centralized storage for versioned production artifacts.
+* **AWS SNS:** Real-time email notifications for pipeline state changes (Success/Failure).
+* **SonarCloud:** SaaS-based quality gate enforcement.
 
-* **AWS CodePipeline:** Orchestrates the CI pipeline and manages the workflow stages.
-* **AWS CodeBuild:** Executes Maven builds and runs SonarCloud analysis in a serverless environment.
-* **AWS CodeArtifact:** Manages internal releases and securely caches external Maven dependencies.
-* **Amazon S3:** Serves as the centralized, versioned storage for production-ready artifacts.
 
-![Architecture](./Diagrams/)
+![Architecture](./Diagrams/Architecture.png)
+
+**Pipeline Validation:** Screenshots of successful execution stages are documented in the `/diagrams` folder.
 
 ---
 
@@ -31,15 +36,17 @@ vprofile-ci-aws-automation/
 └── README.md               # Project documentation
 ```
 ## 🚀 Pipeline Workflow
-* **Developer Push**: Triggered automatically by a Bitbucket Webhook.
+* **Source**: Triggered by Bitbucket via AWS CodeStar Connections. 
 
-* **Build Stage**: Compiled using Maven 3.9 and Amazon Corretto 17.
+* **Review**: CodeBuild retrieves Sonar tokens from SSM Parameter Store and runs static analysis.
 
-* **Code Analysis**: Static analysis performed by SonarCloud for security and bugs.
+* **Quality Gate**: SonarCloud validates the code against security and quality standards.
 
-* **Quality Gate**: Automated check to ensure code meets organizational standards.
+* **Build**: Static analysis performed by SonarCloud for security and bugs.
 
-* **Artifact Upload**: Versioned .war files are securely pushed to Amazon S3.
+* **Artifact Storage**: Automated check to ensure code meets organizational standards.
+
+* **Notification**: Versioned .war files are securely pushed to Amazon S3.
 
 
 ## 🛠 Project Roadmap (Steps Taken)
